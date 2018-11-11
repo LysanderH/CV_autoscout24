@@ -1,5 +1,115 @@
-$vert: green;
+@import "reset"; /*Reset Import*/
 
-h1 {
-	color: $vert;
+@import "fonts"; /*Import Fonts*/
+
+@import "variables"; /*Import variables*/
+
+/* Calcul des % =>
+** La partie du tout * 100 / La valeur initiale
+** 1100 * 100 / 1519.2 = 72%
+** 141.3 * 100 / 1068 = 72%
+*/ 
+
+// Remplacements et cache
+.title--hidden {
+	height: 0;
+	width: 0;
+	overflow: hidden;
+}
+.replace {
+	display: inline-block;
+	width: 10px;
+	height: 10px;
+	text-indent: -9999em;
+}
+
+// positionnement et ajustements
+body {
+	box-sizing: border-box;
+	background: #f4f4f4;
+}
+.header{
+	display: flex;
+	width: 72%;
+	margin: 0 auto;
+	background: $c_white;
+	&__title {
+		width: 85px;
+		height: 39px;
+		background: url(../images/logo.jpg);
+	}
+}
+// Navigation
+.nav{
+	flex: 1 1 0;
+	display: flex;
+	background: $c_white;
+}
+
+.navigation{
+	&__list {
+		display: flex;
+		align-items: flex-start;
+		width: 100%;
+	}
+	&__item:nth-child(4n){
+		margin-left: auto;
+	}
+	&__link {
+		display: inline-block;
+		padding: 24px 40px 24px 24px;
+		box-sizing: inherit;
+		&:hover + .navigation__sub-list {
+			visibility: visible;
+			width: auto;
+			height: auto;
+		}
+	}
+	&__sub-list {
+		visibility: hidden;
+		width: 0;
+		height: 0;
+		z-index: 10;
+	}	
+}
+.account{
+	&__link{
+		visibility: hidden;
+		width: 0;
+		height: 0;
+		display: inline-flex;
+		flex-direction: column;
+		&--main{
+			visibility: visible;
+			width: auto;
+			height: auto;
+			padding: 24px 40px 24px 24px;
+		}
+	}
+	&__span{
+
+	}
+	&__element{
+		width: 0;
+		height: 0;
+	}
+}
+.countryPicker {
+	&__list{
+		width: 0;
+		height: 0;
+	}
+	&__link{
+		visibility: hidden;
+		width: 0;
+		height: 0;
+		display: inline-block;
+		&--main{
+			visibility: visible;
+			width: auto;
+			height: auto;
+			padding: 24px 40px 24px 24px;
+
+		}
+	}
 }
